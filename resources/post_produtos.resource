@@ -9,7 +9,7 @@ Quando enviar uma requisição Post
     ${bodyPostProd}        Factory New Produtos    cnome=${cnome}    cpreco=${cpreco}     cdescricao=${cdescricao}     cquantidade=${cquantidade}
     Log    ${bodyPostProd}
     HeadersAuth
-    ${RESPOSTA}                   Post Cadastrar       /produtos        ${headersAuth}    ${bodyPostProd}
+    ${RESPOSTA}                        Post Cadastrar       /produtos        ${headersAuth}    ${bodyPostProd}
     Set Test Variable                  ${RESPOSTA}
     Log                                ${RESPOSTA.json()}
 
@@ -19,8 +19,8 @@ Então ira validar Status Code
 
 E verificar a mensagem de validação
     [Arguments]     ${mensagem}
-    Should Be Equal As Strings        ${RESPOSTA.json()}[message]     ${mensagem}
+    Should Be Equal As Strings        ${RESPOSTA.json()}[message]             ${mensagem}
 
 E verificar a mensagem de validação do campo
-    [Arguments]            ${campo}         ${mensagem}
-    Should Be Equal As Strings        ${RESPOSTA.json()}[${campo}]    ${mensagem}
+    [Arguments]                       ${campo}                                ${mensagem}
+    Should Be Equal As Strings        ${RESPOSTA.json()}[${campo}]            ${mensagem}

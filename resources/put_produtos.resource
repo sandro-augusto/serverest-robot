@@ -11,11 +11,6 @@ Quando enviar uma requisição Put
     HeadersAuth
     ${nome}    Set Variable    ${bodyPostProd['nome']}
     ${RESPOSTA}   Put in    /produtos    ${headersAuth}       ${bodyPostProd}     ${id}
-    Set Test Variable    ${RESPOSTA}
-    Set Test Variable    ${nome}
-    Log                  ${RESPOSTA.json()}
-
-    
-# E verificar a mensagem de sucesso da Edição
-#     [Arguments]            ${mensagem}
-#     Should Be Equal As Strings        ${RESPOSTA.json()}[message]     ${mensagem}
+    Set Test Variable                    ${RESPOSTA}
+    Set Test Variable                    ${nome}
+    Log                                  ${RESPOSTA.json()}

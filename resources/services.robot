@@ -75,16 +75,16 @@ Token
 
 Cadastro produtos com sucesso
     Fakers
-    Quando enviar uma requisição Post    ${FakeNome}${FakerValor}    1010    Teste Automation    1049
+    Quando enviar uma requisição Post            ${FakeNome}${FakerValor}    1010    Teste Automation    1049
     Set Test Variable       ${id}                ${RESPOSTA.json()}[_id]
 
 HeadersAuth
     ${headersAuth}       Create Dictionary    Authorization=${token}
-    Set Test Variable    ${headersAuth}
+    Set Test Variable       ${headersAuth}
 
 Excluir Produto
     [Arguments]
-    Set Test Variable   ${id}                ${RESPOSTA.json()}[_id]
+    Set Test Variable       ${id}                 ${RESPOSTA.json()}[_id]
     Quando enviar uma requisição pra excluir um produto
 
 Excluir produto por nome
