@@ -5,10 +5,10 @@ Resource    base.robot
 *** Keywords ***
     
 Quando enviar uma requisição Post
-    [Arguments]    ${cnome}    ${cpreco}     ${cdescricao}     ${cquantidade}
+    [Arguments]    ${token}    ${cnome}    ${cpreco}     ${cdescricao}     ${cquantidade}
     ${bodyPostProd}        Factory New Produtos    cnome=${cnome}    cpreco=${cpreco}     cdescricao=${cdescricao}     cquantidade=${cquantidade}
     Log    ${bodyPostProd}
-    HeadersAuth
+    HeadersAuth                        ${token}
     ${RESPOSTA}                        Post Cadastrar       /produtos        ${headersAuth}    ${bodyPostProd}
     Set Test Variable                  ${RESPOSTA}
     Log                                ${RESPOSTA.json()}
