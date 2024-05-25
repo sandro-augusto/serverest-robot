@@ -15,11 +15,12 @@ Atualizar um produto com sucesso
     Excluir produto por nome               ${nome}
 
 Atualizar um produto sem o Token
-     Fakers
+    Fakers
     Dado que tenha uma massa configurada
     Quando enviar uma requisição Put       ${EMPTY}    ${FakeNome}${FakerValor}    1010    Teste Automation    ${FakerValor}
     Então ira visuazilar o Status Code     401
     E verificar a mensagem de validação    Token de acesso ausente, inválido, expirado ou usuário do token não existe mais
+    Excluir produto por nome               ${nome}
 
 Atualizar um produto com Token Invalido
      Fakers
@@ -27,3 +28,4 @@ Atualizar um produto com Token Invalido
     Quando enviar uma requisição Put       token_invalido    ${FakeNome}${FakerValor}    1010    Teste Automation    ${FakerValor}
     Então ira visuazilar o Status Code     401
     E verificar a mensagem de validação    Token de acesso ausente, inválido, expirado ou usuário do token não existe mais
+    Excluir produto por nome               ${nome}
