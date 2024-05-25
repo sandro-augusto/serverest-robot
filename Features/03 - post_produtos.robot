@@ -14,19 +14,16 @@ Cadastrar Produto com sucesso
     E verificar a mensagem de exclusão     Registro excluído com sucesso
 
 Cadastrar Produto sem o Token
-    Fakers
     Quando enviar uma requisição Post      ${EMPTY}    ${FakeNome}${FakerValor}    1010    Teste Automation    1049
     Então ira visuazilar o Status Code     401
     E verificar a mensagem de validação    Token de acesso ausente, inválido, expirado ou usuário do token não existe mais
 
 Cadastro Protudo com Token Invalido
-    Fakers
     Quando enviar uma requisição Post      token_invalido    ${FakeNome}${FakerValor}    1010    Teste Automation    1049
     Então ira visuazilar o Status Code     401
     E verificar a mensagem de validação    Token de acesso ausente, inválido, expirado ou usuário do token não existe mais
 
 Validar Produto duplicado
-    Fakers
     Cadastro duplicado                     ${token}    Testes Robot 10    1010    Teste Automation    1049
     Então ira visuazilar o Status Code     400
     E verificar a mensagem de validação    Já existe produto com esse nome
