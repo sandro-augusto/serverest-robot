@@ -1,21 +1,16 @@
 *** Settings ***
 Documentation       Documentacao da API: ServeRest
+Resource            ./base.robot
 
-Library             FakerLibrary
-Library             RequestsLibrary
-Library             Collections
-Library             String
 
-Resource            Utils.robot
-Resource    delete_produtos.resource
 
 *** Variables ***
 ${token}
-${base_url}         http://localhost:3000
+${base_url}         https://serverest.dev
 &{headersLogin}     accept=application/json
 ...                 Content-Type=application/json
-&{bodyLOGIN}        email=Joseaugusto10@qa.com
-...                 password=051049
+&{bodyLOGIN}        email=sandroteste@qa.com
+...                 password=testeQA
 
 
 *** Keywords ***

@@ -17,14 +17,21 @@ Quando verificar o id do produto
     Set Test Variable       ${RESPOSTA}
     Log                     ${RESPOSTA.json()}
 
-E verificar o campo nome no retorno
-    [Arguments]    ${mensagem}
-    Should Be Equal As Strings    ${nome}      ${mensagem}
-
 E o body não pode está vazio
     Should Not Be Empty    ${RESPOSTA.json()}
+
+E validar os campos de retorno do body
+    Set Test Variable                ${campos}    ${RESPOSTA.json()}
+    Dictionary Should Contain Key    ${campos}    descricao
+    Dictionary Should Contain Key    ${campos}    nome
+    Dictionary Should Contain Key    ${campos}    preco
+    Dictionary Should Contain Key    ${campos}    quantidade
+    Dictionary Should Contain Key    ${campos}    _id
+    Log                              ${campos}
 
 Então ira visuazilar o Status Code
     [Arguments]    ${statusCode}
     Should Be Equal As Strings        ${RESPOSTA.status_code}        ${statusCode}
+
+
 
