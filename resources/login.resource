@@ -5,10 +5,12 @@ Resource    base.robot
 *** Keywords ***
 
 Quando entrar com usuario e senha
-    ${RESPOSTA}    Post in    /login        ${bodyLOGIN}
-    ${token}       Convert To String        ${RESPOSTA.json()}[authorization]
-    Set Global Variable                     ${token}
-    Set Global Variable                     ${RESPOSTA}
+    [Arguments]                             ${email}       ${password}
+    ${bodyLogin}        Factory Login       email=${email}    password=${password}
+    Log      ${bodyLogin}
+    ${RESPOSTA}         Post in    /login        ${bodyLogin}
+    Log      ${RESPOSTA}
+    Set Global Variable                          ${RESPOSTA}
 
 Então o Status Code deverá ser
     [Arguments]                             ${statusCode}

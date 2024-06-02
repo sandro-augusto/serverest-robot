@@ -13,3 +13,4 @@ Resource            post_produtos.resource
 Resource            factories/produtos_fac.resource
 Resource            put_produtos.resource
 Resource            delete_produtos.resource
+Resource            factories/login_fac.resource

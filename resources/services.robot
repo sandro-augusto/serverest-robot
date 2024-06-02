@@ -5,12 +5,12 @@ Resource            ./base.robot
 
 
 *** Variables ***
+${email}
+${senha}
 ${token}
 ${base_url}         https://serverest.dev
 &{headersLogin}     accept=application/json
 ...                 Content-Type=application/json
-&{bodyLOGIN}        email=sandroteste@qa.com
-...                 password=testeQA
 
 
 *** Keywords ***
@@ -25,7 +25,8 @@ Post in
     ${response}         POST          ${base_url}${endpoint} 
     ...                 json=${body}    
     ...                 headers=${headersLogin}
-    
+    ...                 expected_status=any
+
     [Return]            ${response}
 
 
@@ -72,10 +73,11 @@ Delete in
 
 Token
     Conectar a API    /login
-    Quando entrar com usuario e senha
+    Quando entrar com usuario e senha    sandroteste@qa.com    testeQA
+    ${token}            Convert To String        ${RESPOSTA.json()}[authorization]
+    Set Global Variable                          ${token}
     
    
-
 Cadastro produtos com sucesso
     Fakers
     Quando enviar uma requisição Post            ${token}    ${FakeNome}${FakerValor}    1010    Teste Automation    1049
