@@ -1,4 +1,4 @@
-name: Robot Framework CI - VIA CEP
+name: Robot Framework CI - Serve Rest
 
 on:
   push:
