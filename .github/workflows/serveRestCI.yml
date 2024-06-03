@@ -22,10 +22,25 @@ jobs:
       - name: Install dependencies
         run: |
           pip install -r requirements.txt
-
-      - name: Run Test
+      
+          - name: Install Allure CLI
+          run: |
+              wget https://github.com/allure-framework/allure2/releases/download/2.13.8/allure-2.13.8.tgz
+              tar -zxvf allure-2.13.8.tgz
+              sudo mv allure-2.13.8 /opt/allure
+              sudo ln -s /opt/allure/bin/allure /usr/bin/allure
+  
+      - name: Run Robot Framework tests
+        env:
+          PYTHONWARNINGS: "ignore:Unverified HTTPS request"
         run: |
-          robot -d results Features/ || true
+          echo Executando os testes de API do Robot
+          robot -d logs --listener allure_robotframework Features/ || true
+
+      - name: Generate report
+        run: |
+            allure generate output/allure -o allure-report --clean
+
 
       - name: Test Report
         uses: actions/upload-artifact@v4
