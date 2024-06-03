@@ -21,9 +21,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install robotframework==6.1.1
-          pip install robotframework-requests
-          pip install robotframework-faker 
+          pip install -r requirements.txt
 
       - name: Run Test
         run: |

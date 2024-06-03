@@ -28,7 +28,10 @@ Requisitos de software e hardware necessários para executar este projeto de aut
 | Factories               | Local onde devem ser criados os bodys para cada Post                   |
 | Results             | Local onde são criadas as evidências e relatórios do projeto                                        |
 
-
+## INSTALANDO O ROBOT E BIBLIOTECAS
+```sh default
+pip install -r requirements.txt
+```
 
 ## COMANDO PARA EXECUTAR OS TESTES
 

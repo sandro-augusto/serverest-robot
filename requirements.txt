@@ -1,0 +1,3 @@
+robotframework==6.1.1
+install robotframework-requests
+pip install robotframework-faker 
