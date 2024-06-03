@@ -68,7 +68,7 @@ jobs:
       - name: Download Artifacts
         uses: actions/download-artifact@v4
         with: 
-          name: robot-framework-report-web
+          name: serverest-robot
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
