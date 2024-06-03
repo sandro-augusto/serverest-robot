@@ -47,7 +47,7 @@ jobs:
         if: always()
         with:
           name: serverest-robot
-          path: results/
+          path: allure-report/
   
   deploy:
     name: Deploy GitHub Pages 🌐
