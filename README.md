@@ -40,6 +40,15 @@ Com o prompt de comando acesse a pasta do projeto e execute o comando abaixo par
 ```sh default
 robot -d Results ./features/
 ```
+## COMANDO PARA EXECUÇÃO DE TESTES COM ALLURE
+
+Com o prompt de comando acesse a pasta do projeto e execute o comando abaixo para rodar os testes com o Relatório Allure.
+
+Ex.:
+```sh default
+robot -d logs --listener allure_robotframework Features/
+allure serve output\allure
+```
 
 ## COMANDO PARA EXECUÇÃO DE TESTES COM TAGS
 

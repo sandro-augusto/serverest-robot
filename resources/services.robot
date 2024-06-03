@@ -83,6 +83,7 @@ Cadastro produtos com sucesso
     Fakers
     Quando enviar uma requisição Post            ${token}    ${FakeNome}${FakerValor}    1010    Teste Automation    1049
     Set Test Variable       ${id}                ${RESPOSTA.json()}[_id]
+    Log                     ${id}
 
 HeadersAuth
     [Arguments]             ${token} 

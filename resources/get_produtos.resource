@@ -16,6 +16,7 @@ Quando verificar o id do produto
 
 E o body não pode está vazio
     Should Not Be Empty              ${RESPOSTA.json()}
+    Log                              ${RESPOSTA.json()}  
 
 E validar os campos de retorno do body
     Set Test Variable                ${campos}                      ${RESPOSTA.json()}
@@ -33,4 +34,5 @@ E validar os campos de retorno do body
 Então ira visuazilar o Status Code
     [Arguments]    ${statusCode}
     Should Be Equal As Strings       ${RESPOSTA.status_code}        ${statusCode}
+    Log                              ${RESPOSTA.status_code}
 

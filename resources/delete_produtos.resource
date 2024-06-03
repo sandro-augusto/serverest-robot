@@ -17,3 +17,4 @@ Quando enviar uma requisição pra excluir um produto
 E verificar a mensagem de exclusão
     [Arguments]                                ${mensagem}
     Should Be Equal                            ${RESPOSTA.json()}[message]    ${mensagem}
+    Log                                        ${RESPOSTA.json()}[message]
