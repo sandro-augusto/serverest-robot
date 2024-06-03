@@ -51,6 +51,7 @@ Get Id In
     [Arguments]         ${endpoint}    ${id}
     ${response}         GET            ${base_url}${endpoint}/${id}
     ...                 headers=${headersLogin}
+    ...                 expected_status=any
     
     [Return]            ${response}
 

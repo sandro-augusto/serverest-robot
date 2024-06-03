@@ -9,11 +9,8 @@ Quando verificar os produtos cadastrados
     Log                              ${RESPOSTA.json()}
 
 Quando verificar o id do produto
-    Set Test Variable                ${id}                         ${RESPOSTA.json()}[produtos][0][_id]
-    Log                              ${id}
-    ${RESPOSTA}       Get Id In    /produtos                       ${id}
-    ${nome}        Convert To String                               ${RESPOSTA.json()}[nome]
-    Set Test Variable                ${nome}
+    [Arguments]                      ${id}
+    ${RESPOSTA}       Get Id In      /produtos                     ${id}
     Set Test Variable                ${RESPOSTA}
     Log                              ${RESPOSTA.json()}
 
@@ -27,11 +24,13 @@ E validar os campos de retorno do body
     Dictionary Should Contain Key    ${campos}                      preco
     Dictionary Should Contain Key    ${campos}                      quantidade
     Dictionary Should Contain Key    ${campos}                      _id
+    Should Be Equal As Strings       blovmswv                       ${RESPOSTA.json()}[nome]
+    Should Be Equal As Strings       1313                           ${RESPOSTA.json()}[preco]
+    Should Be Equal As Strings       Test                           ${RESPOSTA.json()}[descricao]
+    Should Be Equal As Strings       100                            ${RESPOSTA.json()}[quantidade]
     Log                              ${campos}
 
 Então ira visuazilar o Status Code
     [Arguments]    ${statusCode}
     Should Be Equal As Strings       ${RESPOSTA.status_code}        ${statusCode}
-
-
 
